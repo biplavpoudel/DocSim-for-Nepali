@@ -1,0 +1,356 @@
+{
+    "doc_name": "cheque_template",
+    "data": [
+        {
+            "type": "text",
+            "label": "date--0_0",
+            "entity": "date",
+            "points": [
+                [
+                    501,
+                    36
+                ],
+                [
+                    516,
+                    36
+                ],
+                [
+                    516,
+                    61
+                ],
+                [
+                    501,
+                    61
+                ]
+            ],
+            "width": 15,
+            "height": 25,
+            "text": "1",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "date--0_1",
+            "entity": "date",
+            "points": [
+                [
+                    532,
+                    36
+                ],
+                [
+                    547,
+                    36
+                ],
+                [
+                    547,
+                    61
+                ],
+                [
+                    532,
+                    61
+                ]
+            ],
+            "width": 15,
+            "height": 25,
+            "text": "1",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "date--0_2",
+            "entity": "date",
+            "points": [
+                [
+                    555,
+                    36
+                ],
+                [
+                    585,
+                    36
+                ],
+                [
+                    585,
+                    61
+                ],
+                [
+                    555,
+                    61
+                ]
+            ],
+            "width": 30,
+            "height": 25,
+            "text": "12",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "date--0_3",
+            "entity": "date",
+            "points": [
+                [
+                    585,
+                    36
+                ],
+                [
+                    600,
+                    36
+                ],
+                [
+                    600,
+                    61
+                ],
+                [
+                    585,
+                    61
+                ]
+            ],
+            "width": 15,
+            "height": 25,
+            "text": "0",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "date--0_4",
+            "entity": "date",
+            "points": [
+                [
+                    600,
+                    36
+                ],
+                [
+                    615,
+                    36
+                ],
+                [
+                    615,
+                    61
+                ],
+                [
+                    600,
+                    61
+                ]
+            ],
+            "width": 15,
+            "height": 25,
+            "text": "5",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "date--0_5",
+            "entity": "date",
+            "points": [
+                [
+                    623,
+                    36
+                ],
+                [
+                    638,
+                    36
+                ],
+                [
+                    638,
+                    61
+                ],
+                [
+                    623,
+                    61
+                ]
+            ],
+            "width": 15,
+            "height": 25,
+            "text": "6",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "payee_name--0_0",
+            "entity": "name",
+            "points": [
+                [
+                    140,
+                    83
+                ],
+                [
+                    222,
+                    83
+                ],
+                [
+                    222,
+                    106
+                ],
+                [
+                    140,
+                    106
+                ]
+            ],
+            "width": 82,
+            "height": 23,
+            "text": "ज़ऻठॖळꣴ",
+            "lang": "hi"
+        },
+        {
+            "type": "text",
+            "label": "payee_name--0_1",
+            "entity": "name",
+            "points": [
+                [
+                    228,
+                    83
+                ],
+                [
+                    248,
+                    83
+                ],
+                [
+                    248,
+                    105
+                ],
+                [
+                    228,
+                    105
+                ]
+            ],
+            "width": 20,
+            "height": 22,
+            "text": "भ.",
+            "lang": "hi"
+        },
+        {
+            "type": "text",
+            "label": "payee_name--0_2",
+            "entity": "name",
+            "points": [
+                [
+                    254,
+                    83
+                ],
+                [
+                    319,
+                    83
+                ],
+                [
+                    319,
+                    112
+                ],
+                [
+                    254,
+                    112
+                ]
+            ],
+            "width": 65,
+            "height": 29,
+            "text": "ॳूॸऺॠꣳ",
+            "lang": "hi"
+        },
+        {
+            "type": "text",
+            "label": "amount_words--0_0",
+            "entity": "amount_words",
+            "points": [
+                [
+                    230,
+                    121
+                ],
+                [
+                    240,
+                    121
+                ],
+                [
+                    240,
+                    131
+                ],
+                [
+                    230,
+                    131
+                ]
+            ],
+            "width": 10,
+            "height": 10,
+            "text": "S.",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "amount_words--0_1",
+            "entity": "amount_words",
+            "points": [
+                [
+                    243,
+                    121
+                ],
+                [
+                    277,
+                    121
+                ],
+                [
+                    277,
+                    131
+                ],
+                [
+                    243,
+                    131
+                ]
+            ],
+            "width": 34,
+            "height": 10,
+            "text": "JUYAK",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "amount_words--0_2",
+            "entity": "amount_words",
+            "points": [
+                [
+                    280,
+                    121
+                ],
+                [
+                    319,
+                    121
+                ],
+                [
+                    319,
+                    131
+                ],
+                [
+                    280,
+                    131
+                ]
+            ],
+            "width": 39,
+            "height": 10,
+            "text": "DIPERO",
+            "lang": "en"
+        },
+        {
+            "type": "text",
+            "label": "amount_figures--0_0",
+            "entity": "amount_figures",
+            "points": [
+                [
+                    516,
+                    121
+                ],
+                [
+                    566,
+                    121
+                ],
+                [
+                    566,
+                    137
+                ],
+                [
+                    516,
+                    137
+                ]
+            ],
+            "width": 50,
+            "height": 16,
+            "text": "55,54.9",
+            "lang": "en"
+        }
+    ]
+}
