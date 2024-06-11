@@ -9,7 +9,7 @@ ISO639_TO_SCRIPT = {
     'te': 'telugu',
     'kn': 'kannada',
     'hi': 'devanagari',
-    'nep': 'devanagari',
+    'ne': 'devanagari'
 }
 
 MAX_RANGE = 1114112
@@ -25,7 +25,7 @@ DISALLOWED_CHARACTERS = ['ऀ', 'ऌ', 'ऍ', 'ऎ','ऄ','ऑ', 'ऒ','ऩ',
                          'ॱ', 'ॲ', 'ॳ', 'ॴ', 'ॵ', 'ॶ', 'ॷ',
                          'ॸ', 'ॹ', 'ॺ', 'ॻ', 'ॼ', 'ॽ', 'ॾ', 'ॿ',
                          'ꣲ', 'ꣳ', 'ꣴ', 'ꣵ','ॉ', 'ॊ',
-                         'ꣶ', 'ꣷ', 'ꣻ', 'ꣽ', 'ꣾ', 'ꣿ']
+                         'ꣶ', 'ꣷ', 'ꣻ', 'ꣽ', 'ꣾ', 'ꣿ', 'ॄ']
 # ALLOWED_CATEGORIES = ['L', 'M', 'N', 'P', 'S', 'Z', 'C']
 def get_characters(script_name, only_prefix_match=False, skip_punctuations=False, skip_numbers=False, verbose=True):
     characters = {}
@@ -135,4 +135,4 @@ class LanguageCharacters:
 
 
 if __name__ == '__main__':
-    c = LanguageCharacters('nep', only_prefix_match=True, skip_punctuations=True, skip_numbers=True, verbose=True)
+    c = LanguageCharacters('ne', only_prefix_match=True, skip_punctuations=True, skip_numbers=True, verbose=True)

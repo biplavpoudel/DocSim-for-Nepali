@@ -5,6 +5,7 @@ from tqdm import tqdm
 from docsim.utils.random import random_id
 from docsim.text_generators import *
 from docsim.image_generators import *
+import random
 
 class Generator:
     def __init__(self, template_json):
@@ -160,10 +161,11 @@ class Generator:
         image = Image.open(self.bg_img)
         img_draw = ImageDraw.Draw(image)
         ground_truth = []
+        variable_height = random.choice([0,19])
         for component_name, component in self.components.items():
             if component['type'] == 'text':
                 if component['split_words']:
-                    metadata = self.draw_words(img_draw, component)
+                    metadata = self.draw_words(img_draw, component,variable_height)
                 else:
                     metadata = [self.draw_text(img_draw, component)]
                 ground_truth.extend(metadata)
@@ -228,12 +230,17 @@ class Generator:
             'text': text,
             'lang': component['lang']
         }
-        
-    def draw_words(self, img_draw, component):
+
+    def draw_words(self, img_draw, component,variable_height):
         '''
         Render text with individual words on image for the given component.
         '''
-        x_left, y = component['location']['x_left'], component['location']['y_top']
+        #starting point of text(top left corner)
+        if component["entity"]=="amount_words" or component['entity']=="name":
+            variable_height = variable_height
+        else:
+            variable_height = 0
+        x_left, y = component['location']['x_left'], component['location']['y_top']+variable_height
         bboxes = []
         if component['already_printed']:
             # Draw word-level bboxes for the pre-printed static text

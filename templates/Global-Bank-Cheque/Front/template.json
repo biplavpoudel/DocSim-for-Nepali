@@ -6,7 +6,7 @@
         "lang": "en",
         "font_files": {
             "en": "fonts/Arial_Bold.ttf",
-            "hi": "fonts/Karma-Regular.ttf"
+            "ne": "fonts/Karma-Regular.ttf"
         },
         "font_size": 10,
         "font_color": "rgb(15,15,15)",
@@ -28,12 +28,12 @@
             "type": "text",
             "filler_mode": "random",
             "filler_type": "full_name",
-            "lang": "hi",
+            "lang": "ne",
             "font_size": 23,
             "entity": "name",
             "location": {
-                "x_left": 139,
-                "y_top": 82
+                "x_left": 137,
+                "y_top": 72
             }
         },
         "amount_words": {
@@ -41,10 +41,12 @@
             "filler_mode": "random",
             "filler_type": "full_name",
             "entity": "amount_words",
+            "lang": "ne",
             "font":"fonts/Karma-Regular.ttf",
+            "font_size": 23,
             "location": {
-                "x_left": 229,
-                "y_top": 120
+                "x_left": 90,
+                "y_top": 95
             }
         },
         "amount_figures": {
