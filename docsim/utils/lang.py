@@ -4,18 +4,13 @@ import string
 
 # ISO Language code to script name
 ISO639_TO_SCRIPT = {
-    'ta': 'tamil',
-    'ml': 'malayalam',
-    'te': 'telugu',
-    'kn': 'kannada',
-    'hi': 'devanagari',
     'ne': 'devanagari'
 }
 
 MAX_RANGE = 1114112
 MAX_DEVANAGARI =43264
 MIN_DEVANAGARI = 2304
-ALLOWED_CATEGORIES = ['L', 'M', 'N', 'P']
+# ALLOWED_CATEGORIES = ['L', 'M', 'N', 'P']
 DISALLOWED_CHARACTERS = ['ऀ', 'ऌ', 'ऍ', 'ऎ','ऄ','ऑ', 'ऒ','ऩ',
                          'ऱ', 'ळ', 'ऴ', 'ऺ', 'ऻ', '़', 'ऽ',
                          'ॅ', 'ॆ', 'े', 'ै', 'ॎ', 'ॏ',
@@ -26,7 +21,8 @@ DISALLOWED_CHARACTERS = ['ऀ', 'ऌ', 'ऍ', 'ऎ','ऄ','ऑ', 'ऒ','ऩ',
                          'ॸ', 'ॹ', 'ॺ', 'ॻ', 'ॼ', 'ॽ', 'ॾ', 'ॿ',
                          'ꣲ', 'ꣳ', 'ꣴ', 'ꣵ','ॉ', 'ॊ',
                          'ꣶ', 'ꣷ', 'ꣻ', 'ꣽ', 'ꣾ', 'ꣿ', 'ॄ']
-# ALLOWED_CATEGORIES = ['L', 'M', 'N', 'P', 'S', 'Z', 'C']
+
+ALLOWED_CATEGORIES = ['L', 'M', 'N', 'P', 'S', 'Z', 'C']
 def get_characters(script_name, only_prefix_match=False, skip_punctuations=False, skip_numbers=False, verbose=True):
     characters = {}
     unicode_list = []
@@ -114,16 +110,16 @@ class LanguageCharacters:
         self.characters = get_characters(self.script, only_prefix_match, skip_punctuations, skip_numbers, verbose)
         self.vowels = get_vowels(self.characters)
         self.consonants = get_consonants(self.characters)
-        self.import_letter_combinations()
+        # self.import_letter_combinations()
 
         if verbose: self.print_details()
 
-    def import_letter_combinations(self):
-        if self.lang_code == 'ta':
-            import tamil
-            self.letter_combinations = tamil.utf8.tamil247
-
-        return
+    # def import_letter_combinations(self):
+    #     if self.lang_code == 'ta':
+    #         import tamil
+    #         self.letter_combinations = tamil.utf8.tamil247
+    #
+    #     return
 
     def print_details(self):
         print('LANGUAGE CODE:', self.lang_code)
