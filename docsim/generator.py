@@ -236,10 +236,11 @@ class Generator:
         Render text with individual words on image for the given component.
         '''
         #starting point of text(top left corner)
-        if component["entity"]=="amount_words" or component['entity']=="name":
-            variable_height = variable_height
-        else:
-            variable_height = 0
+        # if component["entity"]=="amount_words" or component['entity']=="name":
+        #     variable_height = variable_height
+        # else:
+        #     variable_height = 0
+        variable_height = 0
         x_left, y = component['location']['x_left'], component['location']['y_top']+variable_height
         bboxes = []
         if component['already_printed']:
