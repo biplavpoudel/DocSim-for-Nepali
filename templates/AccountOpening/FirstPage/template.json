@@ -93,16 +93,27 @@
                 "y_top": 504
             }
         },
-        "account currency": {
-            "type": "image",
+        "account currency1": {
+            "type": "text",
             "filler_mode": "unicode",
             "font_size": 24,
             "unicode": "0x2713",
-            "entity": "account_checkbox",
+            "entity": "currency_checkbox",
             "lang": "symbol",
             "font": "fonts/DejaVuSans.ttf",
             "location": {
                 "x_left": 210,
+                "y_top": 534
+            }
+        },
+        "account currency2": {
+            "type": "text",
+            "filler_mode": "random",
+            "filler_type": "full_name",
+            "font_size": 20,
+            "entity": "foreign_currency",
+            "location": {
+                "x_left": 465,
                 "y_top": 534
             }
         }

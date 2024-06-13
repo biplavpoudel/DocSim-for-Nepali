@@ -6,6 +6,7 @@ from docsim.utils.random import random_id
 from docsim.text_generators import *
 from docsim.image_generators import *
 import random
+from faker import Faker
 
 class Generator:
     def __init__(self, template_json):
@@ -244,12 +245,23 @@ class Generator:
         #     variable_height = variable_height
         # else:
         #     variable_height = 0
-        if component["id"]== "" or component["entity"] == "account_checkbox":
+        if component["entity"] == "account_checkbox":
             x_offset, y_offset = [0, 233, 515], [0, 23, 50]
             x_variable, y_variable = random.choice(x_offset), random.choice(y_offset)
             x_left, y = component['location']['x_left'] + x_variable, component['location']['y_top'] + y_variable
+        elif component["entity"] == "currency_checkbox":
+            x_offset = [0, 80]
+            x_variable = random.choice(x_offset)
+            x_left, y = component['location']['x_left']+x_variable, component['location']['y_top']
+            # If foreign currency is ticked, I need to add a code that writes foreign currency spec and source
+            # my brain isn't braining for now, so separate elif statement for now
+        elif component["entity"] == "foreign_currency":
+            coordinates = [[0, 0], [57, 22]]
+            offset = random.choice(coordinates)
+            x_left, y = component['location']['x_left'] + offset[0], component['location']['y_top'] + offset[1]
         else:
             x_left, y = component['location']['x_left'], component['location']['y_top']
+
         bboxes = []
         if component['already_printed']:
             # Draw word-level bboxes for the pre-printed static text
@@ -363,4 +375,3 @@ class Generator:
             'width': width,
             'height': height,
         }
-    
