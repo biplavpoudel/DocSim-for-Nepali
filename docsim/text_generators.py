@@ -25,7 +25,7 @@ class UnicodeGenerator(TextGeneratorBase):
         self.options = unicode
 
     def generate(self):
-        print("The tick mark is:", chr(int(self.options[0], 16)))
+        # print("The unicode symbol is:", chr(int(self.options[0], 16)))
         return chr(int(self.options[0], 16))
 
 from docsim.utils.lang import EnglishCharacters, LanguageCharacters

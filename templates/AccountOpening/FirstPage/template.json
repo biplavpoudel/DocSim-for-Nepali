@@ -1,12 +1,13 @@
 {
     "doc_name": "cheque_template",
-    "background_img": "templates/AccountOpening/FirstPage/background.jpg",
+    "background_img": "templates/AccountOpening/FirstPage/background.png",
     "defaults": {
         "split_words": true,
         "lang": "en",
         "font_files": {
             "en": "fonts/Arial_Bold.ttf",
-            "ne": "fonts/Karma-Regular.ttf"
+            "ne": "fonts/Karma-Regular.ttf",
+            "symbol": "fonts/DejaVuSans.ttf"
         },
         "font_size": 10,
         "font_color": "rgb(15,15,15)",
@@ -16,92 +17,97 @@
         "date": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":40,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01])- (0 [1-9]|1 [0-2])- (2 0 [0-7] [0-9]| 2 0 8 0)",
+            "font_size": 22,
+            "filler_regex": "(0 [1-9]| [1 2] [0-9]|3 [01])- (0 [1-9]|1 [0-2])- (2 0 [0-7] [0-9]| 2 0 8 0)",
             "entity": "date",
             "location": {
-                "x_left": 2058,
-                "y_top": 335
+                "x_left": 675,
+                "y_top": 107
             }
         },
         "customer_id": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":40,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
+            "font_size": 22,
+            "filler_regex": "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
             "entity": "date",
             "location": {
-                "x_left": 2058,
-                "y_top": 426
+                "x_left": 675,
+                "y_top": 133
             }
         },
         "account_number": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":40,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
+            "font_size": 22,
+            "filler_regex": "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
             "entity": "date",
             "location": {
-                "x_left": 2058,
-                "y_top": 519
+                "x_left": 675,
+                "y_top": 163
             }
         },
         "branch_name": {
             "type": "text",
             "filler_mode": "random",
             "filler_type": "full_name",
-            "font_size":35,
+            "font_size": 15,
             "entity": "name",
             "location": {
-                "x_left": 128,
-                "y_top": 786
+                "x_left": 40,
+                "y_top": 256
             }
         },
         "account_title": {
             "type": "text",
             "filler_mode": "random",
             "filler_type": "full_name",
-            "font_size":40,
+            "font_size": 17,
             "entity": "name",
             "location": {
-                "x_left": 514,
-                "y_top": 1128
+                "x_left": 164,
+                "y_top": 372
             }
         },
         "account_type": {
             "type": "text",
-            "filler_mode" :"unicode",
-            "font_size": 40,
+            "filler_mode": "unicode",
+            "font_size": 24,
             "unicode": "0x2713",
+            "entity": "account_checkbox",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
             "location": {
-                "x_left":220 ,
-                "y_top":1290
+                "x_left": 69,
+                "y_top": 423
             }
         },
         "initial_deposit": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":27,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
+            "font_size": 22,
+            "filler_regex": "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0) ",
             "entity": "date",
             "location": {
-                "x_left": 500,
-                "y_top": 35
+                "x_left": 170,
+                "y_top": 504
             }
         },
         "account currency": {
             "type": "image",
-            "filler_mode" :"random",
-            "image_folder": "images/people/",
+            "filler_mode": "unicode",
+            "font_size": 24,
+            "unicode": "0x2713",
+            "entity": "account_checkbox",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
             "location": {
-                "x_left": 119,
-                "y_top": 198
-            },
-            "dims": {
-                "width": 245,
-                "height": 271
+                "x_left": 210,
+                "y_top": 534
             }
-        },
+        }
+    },
+    "__comment":{
          "acc_holder1": {
             "type": "text",
             "filler_mode": "regex",

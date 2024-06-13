@@ -168,7 +168,7 @@ class Generator:
         for component_name, component in self.components.items():
             if component['type'] == 'text':
                 if component['split_words']:
-                    metadata = self.draw_words(img_draw, component,variable_height)
+                    metadata = self.draw_words(img_draw, component)
                 else:
                     metadata = [self.draw_text(img_draw, component)]
                 ground_truth.extend(metadata)
@@ -234,17 +234,22 @@ class Generator:
             'lang': component['lang']
         }
 
-    def draw_words(self, img_draw, component,variable_height):
+    def draw_words(self, img_draw, component):
         '''
         Render text with individual words on image for the given component.
         '''
+
         #starting point of text(top left corner)
         # if component["entity"]=="amount_words" or component['entity']=="name":
         #     variable_height = variable_height
         # else:
         #     variable_height = 0
-        variable_height = 0
-        x_left, y = component['location']['x_left'], component['location']['y_top']+variable_height
+        if component["id"]== "" or component["entity"] == "account_checkbox":
+            x_offset, y_offset = [0, 233, 515], [0, 23, 50]
+            x_variable, y_variable = random.choice(x_offset), random.choice(y_offset)
+            x_left, y = component['location']['x_left'] + x_variable, component['location']['y_top'] + y_variable
+        else:
+            x_left, y = component['location']['x_left'], component['location']['y_top']
         bboxes = []
         if component['already_printed']:
             # Draw word-level bboxes for the pre-printed static text
@@ -295,6 +300,7 @@ class Generator:
             align = component["align"] if "align" in component else "left"
             spacing = component["spacing"] if "spacing" in component else 4
             text = component['generator'].generate()
+            # print("generated text is:", text)
             component['last_generated'] = text
             text = component['post_processor'].process(text)
             space_width, height  = img_draw.textsize(' ', font=component['font'])
