@@ -69,16 +69,13 @@
             }
         },
         "account_type": {
-            "type": "image",
-            "filler_mode" :"random",
-            "image_folder": "images/people/",
+            "type": "text",
+            "filler_mode" :"unicode",
+            "font_size": 40,
+            "unicode": "0x2713",
             "location": {
-                "x_left": 2000,
-                "y_top": 4000
-            },
-            "dims": {
-                "width": 245,
-                "height": 271
+                "x_left":220 ,
+                "y_top":1290
             }
         },
         "initial_deposit": {

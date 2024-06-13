@@ -18,6 +18,16 @@ class TextFromArrayGenerator(TextGeneratorBase):
     def generate(self):
         return random.choice(self.options)
 
+
+# To return unicode of give integer in component['unicode']
+class UnicodeGenerator(TextGeneratorBase):
+    def __init__(self, unicode):
+        self.options = unicode
+
+    def generate(self):
+        print("The tick mark is:", chr(int(self.options[0], 16)))
+        return chr(int(self.options[0], 16))
+
 from docsim.utils.lang import EnglishCharacters, LanguageCharacters
 class NameGenerator(TextGeneratorBase):
     def __init__(self, lang='en'):

@@ -55,7 +55,8 @@ class Generator:
             self.default_config['font_files'] = {'en': None}
         # self.default_fonts = {lang: ImageFont.truetype(self.default_config['font_files'][lang], size=self.default_config['font_size']) for lang in self.default_config['font_files']}
         
-        self.default_config['post_processor'] = TextPostProcessor(upper_case=self.default_config['upper_case'], multiline=self.default_config['multiline'])
+        self.default_config['post_processor'] = TextPostProcessor(upper_case=self.default_config['upper_case'],
+                                                                  multiline=self.default_config['multiline'])
         
         return
          
@@ -101,6 +102,8 @@ class Generator:
                     component['generator'] = TextFromArrayGenerator(component['filler_options'])
                 elif component['filler_mode'] == 'fixed':
                     component['generator'] = TextFromArrayGenerator([component['filler_text']])
+                elif component['filler_mode'] == 'unicode':
+                    component['generator'] = UnicodeGenerator([component['unicode']])
                 elif component['filler_mode'] == 'reference':
                     component['generator'] = ReferentialTextGenerator(component['data_source'])
                 elif component['filler_mode'] == 'transliteration':
