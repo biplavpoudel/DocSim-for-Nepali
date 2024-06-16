@@ -88,12 +88,6 @@ class Generator:
                 if component['filler_mode'] == 'random':
                     if component['filler_type'] == 'full_name':
                         component['generator'] = FullNameGenerator(component['lang'])
-                    elif component['filler_type'] == 'optional':
-                        choice = random.choice([0,1])
-                        if choice == 1:
-                            pass
-                        else:
-                            component['generator'] = FullNameGenerator(component['lang'])
                     elif component['filler_type'] == 'multiline_full_name':
                         component['generator'] = MultilineFullNameGenerator(component['lang'])
                     elif component['filler_type'] == 'child_name':
@@ -261,12 +255,12 @@ class Generator:
             x_left, y = component['location']['x_left']+x_variable, component['location']['y_top']
             # If foreign currency is ticked, I need to add a code that writes foreign currency spec and source
             # my brain isn't braining for now, so separate elif statement for now
-        elif component["entity"] == "foreign_currency":
-            coordinates = [[0, 0], [57, 22]]
-            offset = random.choice(coordinates)
-            x_left, y = component['location']['x_left'] + offset[0], component['location']['y_top'] + offset[1]
+        elif component["entity"] == "purpose":
+            x_variable= random.choice([0, 82, 216, 335, 460])
+            x_left, y = component['location']['x_left'] + x_variable, component['location']['y_top']
         else:
             x_left, y = component['location']['x_left'], component['location']['y_top']
+
 
         bboxes = []
         if component['already_printed']:

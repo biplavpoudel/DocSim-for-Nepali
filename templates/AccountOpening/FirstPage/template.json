@@ -108,51 +108,74 @@
         },
         "account currency2": {
             "type": "text",
-            "filler_mode": "random",
-            "filler_type": "optional",
-            "font_size": 20,
+            "filler_mode": "regex",
+            "font_size": 13,
             "entity": "foreign_currency",
+            "filler_regex": "^$|^[a-zA-Z]{3,10}$",
             "location": {
                 "x_left": 465,
                 "y_top": 534
             }
-        }
-    },
-    "__comment":{
-         "acc_holder1": {
+        },
+        "account currency3": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":27,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
+            "filler_regex": "^$|^[a-zA-Z]{3,10}$",
+            "font_size": 17,
+            "entity": "foreign_amount",
+            "location": {
+                "x_left": 525,
+                "y_top": 552
+            }
+        },
+        "purpose": {
+            "type": "text",
+            "filler_mode": "unicode",
+            "font_size": 24,
+            "unicode": "0x2713",
+            "entity": "purpose",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
+            "location": {
+                "x_left": 210,
+                "y_top": 580
+            }
+        },
+        "acc_holder1": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size":23,
+            "filler_regex":  "^[a-zA-Z]{3,26}$",
             "entity": "date",
             "location": {
-                "x_left": 500,
-                "y_top": 35
+                "x_left": 194,
+                "y_top": 631
             }
         },
          "acc_holder2": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":27,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
+            "font_size":23,
+            "filler_regex":  "| ((0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0))",
             "entity": "date",
             "location": {
-                "x_left": 500,
-                "y_top": 35
+                "x_left": 194,
+                "y_top": 675
             }
         },
         "acc_holder3": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size":27,
-            "filler_regex":  "(0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0)",
+            "font_size":23,
+            "filler_regex":  "|((0 [1-9]| [1 2] [0-9]|3 [01]) (0 [1-9]|1 [0-2])(2 0 [0-7] [0-9]| 2 0 8 0))",
             "entity": "date",
             "location": {
-                "x_left": 500,
-                "y_top": 35
+                "x_left": 194,
+                "y_top": 721
             }
-        },
-
+        }
+    },
+    "__comment":{
         "nominee": {
             "type": "text",
             "filler_mode": "regex",
