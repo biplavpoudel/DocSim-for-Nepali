@@ -53,7 +53,34 @@ class NameGenerator(TextGeneratorBase):
     def random_name(self, min_length=5, max_length=5):
         length = random.randrange(min_length, max_length)
         return self.random_length_name(length)
-            
+
+
+class AccountNameGenerator(TextGeneratorBase):
+    def __init__(self, lang='en'):
+        if lang == 'en':
+            self.charset = EnglishCharacters()
+            self.title_case = True
+        else:
+            self.charset = LanguageCharacters(lang)
+            self.title_case = False
+
+        if hasattr(self.charset, 'letter_combinations'):
+            self.random_length_name = self.random_length_name_from_combinations
+
+    def generate(self, min_len=5, max_len=5):
+        return self.random_name(min_len, max_len)
+
+    def random_length_name_from_combinations(self, length=5):
+        return ' '.join(random.choice(self.charset.letter_combinations) for i in range(length))
+
+    def random_length_name(self, length=5):
+        return ' '.join(random.choice((self.charset.consonants, self.charset.vowels)[i % 2]) for i in range(length))
+
+    def random_name(self, min_length=5, max_length=5):
+        length = random.randrange(min_length, max_length)
+        return self.random_length_name(length)
+
+
 class FullNameGenerator(NameGenerator):
     
     def generate(self):
@@ -89,6 +116,30 @@ class FullNameGenerator(NameGenerator):
         if random.random() > 0.15:
             name += ' ' + last_name
         
+        return name.title() if self.title_case else name
+
+
+class AccNameGenerator(AccountNameGenerator):
+    def generate(self):
+        return self.random_fullname()
+
+    def random_fullname(self):
+        first_name = self.random_name(5, 7)
+
+        middle_name = self.random_name(4, 7)
+        last_name = self.random_name(6, 8)
+
+        # Add last name for majority
+        if random.random() > 0.45:
+            if len(first_name) < 8:
+                middle_name = " "*random.randint(20,25)
+            else:
+                middle_name = " "* random.randint(14,17)
+        else:
+            if len(first_name) < 8:
+                first_name += " "*random.randint(15,20)
+        name = f"{first_name}{' '*7}{middle_name}{' '*7}{last_name}"
+
         return name.title() if self.title_case else name
 
 class MultilineFullNameGenerator(FullNameGenerator):
