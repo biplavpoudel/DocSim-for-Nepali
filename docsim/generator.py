@@ -88,6 +88,12 @@ class Generator:
                 if component['filler_mode'] == 'random':
                     if component['filler_type'] == 'full_name':
                         component['generator'] = FullNameGenerator(component['lang'])
+                    elif component['filler_type'] == 'optional':
+                        choice = random.choice([0,1])
+                        if choice == 1:
+                            pass
+                        else:
+                            component['generator'] = FullNameGenerator(component['lang'])
                     elif component['filler_type'] == 'multiline_full_name':
                         component['generator'] = MultilineFullNameGenerator(component['lang'])
                     elif component['filler_type'] == 'child_name':

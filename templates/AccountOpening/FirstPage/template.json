@@ -109,7 +109,7 @@
         "account currency2": {
             "type": "text",
             "filler_mode": "random",
-            "filler_type": "full_name",
+            "filler_type": "optional",
             "font_size": 20,
             "entity": "foreign_currency",
             "location": {
