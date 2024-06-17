@@ -1,16 +1,16 @@
 # DocSim -- Documents Simulator
 
-Synthetically generate random text documents with ground truth!  
-[Check here](/documentation/Features.md) for list of all features.
+Synthetically generate random text documents with ground truth!
 
-Note:  
-This project is only for research purposes [like this](https://github.com/beacandler/EATEN).
 
-## Demo
+[//]: # (## Demo)
 
-|Template|Generated|Augmented|
-|:------:|:-------:|:-------:|
-|<img src="documentation/demo/template.jpg"/>|<img src="documentation/demo/generated.jpg"/>|<img src="documentation/demo/augmented.jpg"/>|
+[//]: # ()
+[//]: # (|                   Template                   |                   Generated                   |                   Augmented                   |)
+
+[//]: # (|:--------------------------------------------:|:---------------------------------------------:|:---------------------------------------------:|)
+
+[//]: # (| <img src="documentation/misc/template.jpg"/> | <img src="documentation/misc/generated.jpg"/> | <img src="documentation/misc/augmented.jpg"/> |)
 
 ## Requirements
 
@@ -37,32 +37,3 @@ python augment.py <config.json> <input_folder> <num_epochs> <output_folder> <num
 Check [`documentation/Augmentation`](documentation/Augmentation.md) for more details.
 
 <hr/>
-
-## Demo Web UI
-
-Ensure you have installed StreamLit by `pip install streamlit`.
-
-### Generator UI
-
-UI to generate document using desired template by filling data manually (for demo purpose)
-
-```
-streamlit run generator_ui.py
-```
-
-ToDo: (Contributions welcome)
-
-- Add augmentation support in UI
-- Create another UI for creating templates.
-
-<hr/>
-
-## Footnotes
-
-For any problems or queries, please report under the "Issues" tab.  
-Feel free to contribute by sending a Pull Request.
-
-### Other similar libraries
-
-- [DocCreator](https://doc-creator.labri.fr/)
-- [DocEmul](https://github.com/narVidhai/DocEmul)
