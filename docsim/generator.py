@@ -263,6 +263,9 @@ class Generator:
         elif component["entity"] == "nominee_check":
             x_variable= random.choice([0, 90])
             x_left, y = component['location']['x_left'] + x_variable, component['location']['y_top']
+        elif component["entity"] == "guardian_check":
+            x_variable= random.choice([0, 75, 165])
+            x_left, y = component['location']['x_left'] + x_variable, component['location']['y_top']
         else:
             x_left, y = component['location']['x_left'], component['location']['y_top']
 
