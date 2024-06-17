@@ -5,7 +5,7 @@
         "split_words": true,
         "lang": "en",
         "font_files": {
-            "en": "fonts/Arial_Regular.ttf",
+            "en": "fonts/PhontPhreaks Handwriting.ttf",
             "ne": "fonts/Karma-Regular.ttf",
             "symbol": "fonts/DejaVuSans.ttf"
         },
@@ -317,10 +317,10 @@
             "filler_mode": "regex",
             "filler_regex": "^Office of Local Registrar, [A-Z][a-z]{4,11}$",
             "entity": "minor_issued_by",
-            "font_size": 12,
+            "font_size": 18,
             "location": {
-                "x_left": 198,
-                "y_top": 1074
+                "x_left": 195,
+                "y_top": 1071
             }
         },
         "issued_on": {
