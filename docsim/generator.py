@@ -167,9 +167,10 @@ class Generator:
         image = Image.open(self.bg_img)
         img_draw = ImageDraw.Draw(image)
         ground_truth = []
-        variable_height = random.choice([0,19])
         for component_name, component in self.components.items():
             if component['type'] == 'text':
+                # To know if draw_text() or draw_words() is invoked
+                # print(component['split_words'],"for enitity:", component['entity'])
                 if component['split_words']:
                     metadata = self.draw_words(img_draw, component)
                 else:
@@ -208,7 +209,29 @@ class Generator:
         '''
         Render text on image for the given component.
         '''
-        x, y = component['location']['x_left'], component['location']['y_top']
+        if component["entity"] == "account_checkbox":
+            x_offset, y_offset = [0, 233, 515], [0, 23, 50]
+            x_variable, y_variable = random.choice(x_offset), random.choice(y_offset)
+            x, y = component['location']['x_left'] + x_variable, component['location']['y_top'] + y_variable
+        elif component["entity"] == "currency_checkbox":
+            x_offset = [0, 80]
+            x_variable = random.choice(x_offset)
+            x, y = component['location']['x_left']+x_variable, component['location']['y_top']
+            # If foreign currency is ticked, I need to add a code that writes foreign currency spec and source
+            # my brain isn't braining for now, so separate elif statement for now
+        elif component["entity"] == "purpose":
+            x_variable= random.choice([0, 82, 216, 335, 460])
+            x, y = component['location']['x_left'] + x_variable, component['location']['y_top']
+        elif component["entity"] == "nominee_check":
+            x_variable= random.choice([0, 90])
+            x, y = component['location']['x_left'] + x_variable, component['location']['y_top']
+        elif component["entity"] == "guardian_check":
+            x_variable= random.choice([0, 75, 165])
+            x, y = component['location']['x_left'] + x_variable, component['location']['y_top']
+        else:
+            x, y = component['location']['x_left'], component['location']['y_top']
+
+        # x, y = component['location']['x_left'], component['location']['y_top']
         if component['already_printed']:
             width, height = component['dims']['width'], component['dims']['height']
             text = component['text']

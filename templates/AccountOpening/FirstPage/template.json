@@ -2,7 +2,7 @@
     "doc_name": "cheque_template",
     "background_img": "templates/AccountOpening/FirstPage/background.png",
     "defaults": {
-        "split_words": true,
+        "split_words": false,
         "lang": "en",
         "font_files": {
             "en": "fonts/PhontPhreaks Handwriting.ttf",
@@ -192,7 +192,7 @@
             "filler_mode": "random",
             "font_size": 20,
             "filler_type": "account_full_name",
-            "entity": "nominee_name",
+            "entity": "account",
             "location": {
                 "x_left": 167,
                 "y_top": 833
@@ -260,7 +260,7 @@
             "filler_mode": "random",
             "font_size": 23,
             "filler_type": "account_full_name",
-            "entity": "guardian_name",
+            "entity": "account",
             "location": {
                 "x_left": 203,
                 "y_top": 968
@@ -309,7 +309,7 @@
             "entity": "birth_certificate",
             "location": {
                 "x_left": 606,
-                "y_top": 1052
+                "y_top": 1049
             }
         },
         "issued_by": {
