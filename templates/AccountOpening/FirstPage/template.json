@@ -51,22 +51,22 @@
             "type": "text",
             "filler_mode": "regex",
             "filler_regex": "^[A-Z][a-z]{5,8}$",
-            "font_size": 15,
+            "font_size": 25,
             "entity": "name",
             "location": {
                 "x_left": 44,
-                "y_top": 256
+                "y_top": 250
             }
         },
         "account_title": {
             "type": "text",
             "filler_mode": "random",
             "filler_type": "full_name",
-            "font_size": 17,
+            "font_size": 27,
             "entity": "name",
             "location": {
                 "x_left": 164,
-                "y_top": 372
+                "y_top": 364
             }
         },
         "account_type": {
@@ -109,12 +109,12 @@
         "account currency2": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 13,
+            "font_size": 20,
             "entity": "foreign_currency",
             "filler_regex": "^$|^[a-zA-Z]{3,10}$",
             "location": {
                 "x_left": 465,
-                "y_top": 534
+                "y_top": 530
             }
         },
         "account currency3": {
@@ -214,45 +214,45 @@
         "nominee_citizenship_no": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 19,
+            "font_size": 22,
             "filler_regex": "^\\d{2}-\\d{2}-\\d{2}-\\d{5}$|^\\d{11}$",
             "entity": "citizenship",
             "location": {
                 "x_left": 173,
-                "y_top": 868
+                "y_top": 862
             }
         },
         "nominee_issue_place": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 18,
+            "font_size": 20,
             "filler_regex": "^[A-Z][a-z]{5,10}$",
             "entity": "nominee issue",
             "location": {
                 "x_left": 451,
-                "y_top": 869
+                "y_top": 865
             }
         },
         "nomination_address": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 18,
+            "font_size": 25,
             "filler_regex": "^[A-Z][a-z]{4,9}, [A-Z][a-z]{4,9}$",
             "entity": "nominee address",
             "location": {
                 "x_left": 184,
-                "y_top": 896
+                "y_top": 890
             }
         },
         "nomination_relation": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 18,
+            "font_size": 25,
             "filler_regex": "^[A-Z][a-z]{3,7}$",
             "entity": "nominee_relation",
             "location": {
                 "x_left": 182,
-                "y_top": 921
+                "y_top": 913
             }
         },
         "guardian_name": {
@@ -263,7 +263,7 @@
             "entity": "account",
             "location": {
                 "x_left": 203,
-                "y_top": 968
+                "y_top": 965
             }
         },
         "guardian_relation": {
@@ -282,23 +282,23 @@
         "guardian_address": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 18,
+            "font_size": 25,
             "filler_regex": "^[A-Z][a-z]{4,9}, [A-Z][a-z]{4,9}$",
             "entity": "address",
             "location": {
                 "x_left": 194,
-                "y_top": 1029
+                "y_top": 1025
             }
         },
         "dob_minor": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 18,
+            "font_size": 20,
             "filler_regex": "^(0[1-9]|[1-2][0-9]|3[01])-(0[1-9]|1[0-2])-(20[7-8][0-9])$",
             "entity": "date",
             "location": {
                 "x_left": 332,
-                "y_top": 1052
+                "y_top": 1048
             }
         },
         "certificate_no": {
@@ -317,21 +317,21 @@
             "filler_mode": "regex",
             "filler_regex": "^Office of Local Registrar, [A-Z][a-z]{4,11}$",
             "entity": "minor_issued_by",
-            "font_size": 18,
+            "font_size": 25,
             "location": {
                 "x_left": 195,
-                "y_top": 1071
+                "y_top": 1065
             }
         },
         "issued_on": {
             "type": "text",
             "filler_mode": "regex",
-            "font_size": 18,
+            "font_size": 25,
             "filler_regex": "^(0[1-9]|[1-2][0-9]|3[01])-(0[1-9]|1[0-2])-(20[7-8][0-9])$",
             "entity": "minor_issued_date",
             "location": {
                 "x_left": 593,
-                "y_top": 1073
+                "y_top": 1065
             }
         },
         "proof": {
@@ -339,10 +339,10 @@
             "filler_mode": "regex",
             "filler_regex": "^[A-Z][a-z]{8,11}$",
             "entity": "guard_proof",
-            "font_size": 18,
+            "font_size": 25,
             "location": {
                 "x_left": 596,
-                "y_top": 1094
+                "y_top": 1090
             }
         }
     }
