@@ -1,0 +1,321 @@
+{
+    "doc_name": "cheque_template",
+    "background_img": "templates/AccountOpening/ThirdPage/background.png",
+    "defaults": {
+        "split_words": false,
+        "lang": "en",
+        "font_files": {
+            "en": "fonts/PhontPhreaks Handwriting.ttf",
+            "ne": "fonts/Karma-Regular.ttf",
+            "symbol": "fonts/DejaVuSans.ttf"
+        },
+        "font_size": 10,
+        "font_color": "rgb(15,15,15)",
+        "upper_case": false
+    },
+    "components": {
+        "account_ops": {
+            "type": "text",
+            "filler_mode": "unicode",
+            "font_size": 24,
+            "unicode": "0x2713",
+            "entity": "mode_account_operation",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
+            "location": {
+                "x_left": 80,
+                "y_top": 80
+            }
+        },
+        "single_mode": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 20,
+            "entity": "single_mode",
+            "filler_regex": "^$|^[a-zA-Z]{3,10}$",
+            "location": {
+                "x_left": 346,
+                "y_top": 105
+            }
+        },
+        "other_mode": {
+            "type": "text",
+            "filler_mode": "regex",
+            "filler_regex": "^$|^[a-zA-Z]{3,10}$",
+            "font_size": 17,
+            "entity": "other_mode",
+            "location": {
+                "x_left": 343,
+                "y_top": 123
+            }
+        },
+        "specimen1": {
+            "type": "text",
+            "filler_mode": "random",
+            "font_size": 22,
+            "filler_type": "full_name",
+            "entity": "specimen_name",
+            "location": {
+                "x_left": 150,
+                "y_top": 177
+            }
+        },
+        "signature1": {
+            "type": "image",
+            "filler_mode": "random",
+            "image_folder": "images/signatures/",
+            "entity": "specimen_sign",
+            "dims": {
+                "width": 125,
+                "height": 80
+            },
+            "location": {
+                "x_left": 100,
+                "y_top": 240
+            }
+        },
+        "photo1": {
+            "type": "image",
+            "filler_mode": "random_face_online",
+            "entity": "specimen_photo",
+            "dims": {
+                "width": 100,
+                "height": 114
+            },
+            "location": {
+                "x_left": 296,
+                "y_top": 232
+            }
+        }
+    },
+    "__comment": {
+        "account currency3": {
+            "type": "text",
+            "filler_mode": "regex",
+            "filler_regex": "^$|^[a-zA-Z]{3,10}$",
+            "font_size": 17,
+            "entity": "foreign_amount",
+            "location": {
+                "x_left": 525,
+                "y_top": 552
+            }
+        },
+        "purpose": {
+            "type": "text",
+            "filler_mode": "unicode",
+            "font_size": 24,
+            "unicode": "0x2713",
+            "entity": "purpose",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
+            "location": {
+                "x_left": 209,
+                "y_top": 576
+            }
+        },
+        "acc_holder1": {
+            "type": "text",
+            "filler_mode": "random",
+            "font_size": 20,
+            "filler_type": "account_full_name",
+            "entity": "account",
+            "location": {
+                "x_left": 194,
+                "y_top": 631
+            }
+        },
+        "acc_holder2": {
+            "type": "text",
+            "filler_mode": "random",
+            "font_size": 23,
+            "filler_type": "account_full_name",
+            "entity": "account",
+            "location": {
+                "x_left": 194,
+                "y_top": 675
+            }
+        },
+        "acc_holder3": {
+            "type": "text",
+            "filler_mode": "random",
+            "font_size": 23,
+            "filler_type": "account_full_name",
+            "entity": "account",
+            "location": {
+                "x_left": 194,
+                "y_top": 721
+            }
+        },
+        "nominee": {
+            "type": "text",
+            "filler_mode": "unicode",
+            "font_size": 24,
+            "unicode": "0x2713",
+            "entity": "nominee_check",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
+            "location": {
+                "x_left": 270,
+                "y_top": 766
+            }
+        },
+        "nominee_name": {
+            "type": "text",
+            "filler_mode": "random",
+            "font_size": 20,
+            "filler_type": "account_full_name",
+            "entity": "account",
+            "location": {
+                "x_left": 167,
+                "y_top": 833
+            }
+        },
+        "nominee_photo": {
+            "type": "image",
+            "filler_mode": "random",
+            "image_folder": "images/people/",
+            "location": {
+                "x_left": 697,
+                "y_top": 790
+            },
+            "dims": {
+                "width": 77,
+                "height": 97
+            }
+        },
+        "nominee_citizenship_no": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 22,
+            "filler_regex": "^\\d{2}-\\d{2}-\\d{2}-\\d{5}$|^\\d{11}$",
+            "entity": "citizenship",
+            "location": {
+                "x_left": 173,
+                "y_top": 862
+            }
+        },
+        "nominee_issue_place": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 20,
+            "filler_regex": "^[A-Z][a-z]{5,10}$",
+            "entity": "nominee issue",
+            "location": {
+                "x_left": 451,
+                "y_top": 865
+            }
+        },
+        "nomination_address": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 25,
+            "filler_regex": "^[A-Z][a-z]{4,9}, [A-Z][a-z]{4,9}$",
+            "entity": "nominee address",
+            "location": {
+                "x_left": 184,
+                "y_top": 890
+            }
+        },
+        "nomination_relation": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 25,
+            "filler_regex": "^[A-Z][a-z]{3,7}$",
+            "entity": "nominee_relation",
+            "location": {
+                "x_left": 182,
+                "y_top": 913
+            }
+        },
+        "guardian_name": {
+            "type": "text",
+            "filler_mode": "random",
+            "font_size": 23,
+            "filler_type": "account_full_name",
+            "entity": "account",
+            "location": {
+                "x_left": 203,
+                "y_top": 965
+            }
+        },
+        "guardian_relation": {
+            "type": "text",
+            "filler_mode": "unicode",
+            "font_size": 24,
+            "unicode": "0x2713",
+            "entity": "guardian_check",
+            "lang": "symbol",
+            "font": "fonts/DejaVuSans.ttf",
+            "location": {
+                "x_left": 214,
+                "y_top": 1000
+            }
+        },
+        "guardian_address": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 25,
+            "filler_regex": "^[A-Z][a-z]{4,9}, [A-Z][a-z]{4,9}$",
+            "entity": "address",
+            "location": {
+                "x_left": 194,
+                "y_top": 1025
+            }
+        },
+        "dob_minor": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 20,
+            "filler_regex": "^(0[1-9]|[1-2][0-9]|3[01])-(0[1-9]|1[0-2])-(20[7-8][0-9])$",
+            "entity": "date",
+            "location": {
+                "x_left": 332,
+                "y_top": 1048
+            }
+        },
+        "certificate_no": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 20,
+            "filler_regex": "^\\d{13}$",
+            "entity": "birth_certificate",
+            "location": {
+                "x_left": 606,
+                "y_top": 1049
+            }
+        },
+        "issued_by": {
+            "type": "text",
+            "filler_mode": "regex",
+            "filler_regex": "^Office of Local Registrar, [A-Z][a-z]{4,11}$",
+            "entity": "minor_issued_by",
+            "font_size": 25,
+            "location": {
+                "x_left": 195,
+                "y_top": 1065
+            }
+        },
+        "issued_on": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size": 25,
+            "filler_regex": "^(0[1-9]|[1-2][0-9]|3[01])-(0[1-9]|1[0-2])-(20[7-8][0-9])$",
+            "entity": "minor_issued_date",
+            "location": {
+                "x_left": 593,
+                "y_top": 1065
+            }
+        },
+        "proof": {
+            "type": "text",
+            "filler_mode": "regex",
+            "filler_regex": "^[A-Z][a-z]{8,11}$",
+            "entity": "guard_proof",
+            "font_size": 25,
+            "location": {
+                "x_left": 596,
+                "y_top": 1090
+            }
+        }
+    }
+}

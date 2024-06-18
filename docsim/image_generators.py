@@ -32,7 +32,7 @@ class ImageGenerator:
         return img, img_path
 
 class OnlineFaceGenerator:
-    URL = 'https://thispersondoesnotexist.com/image'
+    URL = 'https://thispersondoesnotexist.com/'
     def __init__(self, dims):
         self.img_size = (dims['width'], dims['height']) if dims else (400, 400)
     

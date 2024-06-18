@@ -228,6 +228,14 @@ class Generator:
         elif component["entity"] == "guardian_check":
             x_variable= random.choice([0, 75, 165])
             x, y = component['location']['x_left'] + x_variable, component['location']['y_top']
+        elif component["entity"] == "mode_account_operation":
+            coord = random.choice([True, False])
+            if coord:
+                x_variable, y_variable = random.choice([0, 165]), 0
+            else:
+                x_variable, y_variable = 0, random.choice([0, 20])
+            x, y = component['location']['x_left'] + x_variable, component['location']['y_top'] + y_variable
+        # default if no entity matching occurs
         else:
             x, y = component['location']['x_left'], component['location']['y_top']
 
