@@ -28,6 +28,7 @@ class ImageGenerator:
     def generate(self):
         img_index = randrange(len(self.images))
         img_path = self.images[img_index]
+        # img = Image.open(img_path).resize(self.img_size, Image.BICUBIC)
         img = Image.open(img_path).resize(self.img_size)
         return img, img_path
 
@@ -99,3 +100,16 @@ class BarCodeGenerator:
         os.remove('temp.png')
         resized_bar = bar_image.resize(self.img_size, resample=Image.NEAREST)
         return resized_bar, data
+
+if __name__ == '__main__':
+    import matplotlib.pyplot as plt
+    image_folder= "../images/signatures/"
+    dims = {
+        "width": 125,
+        "height": 80
+    }
+    obj = ImageGenerator(image_folder, dims)
+    img,_ = obj.generate()
+    plt.imshow(img)
+    plt.axis("off")  # Hide axes
+    plt.show()

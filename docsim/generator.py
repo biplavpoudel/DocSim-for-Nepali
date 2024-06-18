@@ -1,6 +1,6 @@
 import os
 import json
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 from tqdm import tqdm
 from docsim.utils.random import random_id
 from docsim.text_generators import *
@@ -398,7 +398,12 @@ class Generator:
         width, height = component['dims']['width'], component['dims']['height']
         if not component['already_printed']:
             img, details = component['generator'].generate()
-            background.paste(img, (x, y))
+            # Ensure the image has an alpha channel
+            if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
+                background.paste(img, (x, y), img)  # Use the image itself as the mask
+            else:
+                background.paste(img, (x, y))
+            # background.paste(img, (x, y))
         
         return {
             'type': component['type'],
