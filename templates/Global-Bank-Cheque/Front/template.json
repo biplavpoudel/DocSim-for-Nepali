@@ -31,34 +31,34 @@
             "filler_mode": "random",
             "filler_type": "full_name",
             "lang": "ne",
-            "font_size": 25,
-            "entity": "name",
+            "font_size": 30,
+            "entity": "cheque_payee_name",
             "location": {
-                "x_left": 292,
-                "y_top": 128
+                "x_left": 288,
+                "y_top": 147
             }
         },
         "amount_words": {
             "type": "text",
             "filler_mode": "random",
             "filler_type": "full_name",
-            "entity": "amount_words",
+            "entity": "cheque_amount_words",
             "lang": "ne",
             "font":"fonts/Karma-Regular.ttf",
-            "font_size": 25,
+            "font_size": 30,
             "location": {
                 "x_left": 194,
-                "y_top": 165
+                "y_top": 184
             }
         },
         "amount_figures": {
             "type": "text",
             "filler_mode": "regex",
             "filler_type": "full_name",
-            "font_size": 25,
+            "font_size": 30,
             "lang": "ne",
             "font":"fonts/Karma-Regular.ttf",
-            "filler_regex": "^[०-९]{1,3}(,[०-९]{1,2})?(\\.[०-९]{1,2})?$\n",
+            "filler_regex": "(?i)^(([०-९]{1,2},[०-९]{2},[०-९]{3})|([०-९]{1,2},[०-९]{3})|([०-९]{1,3}))/-$\n",
             "entity": "amount_figures",
             "location": {
                 "x_left": 924,

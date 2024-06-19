@@ -209,7 +209,14 @@ class Generator:
         '''
         Render text on image for the given component.
         '''
-        if component["entity"] == "account_checkbox":
+        # For chequebook of Global IME Bank
+        if component["entity"] == "cheque_amount_words" or component["entity"] == "cheque_payee_name":
+            y_check_offset = [0, -17]
+            y_check_variable = random.choice(y_check_offset)
+            x, y = component['location']['x_left'], component['location']['y_top'] + y_check_variable
+
+        # For account opening bank form of Everest Bank
+        elif component["entity"] == "account_checkbox":
             x_offset, y_offset = [0, 233, 515], [0, 23, 50]
             x_variable, y_variable = random.choice(x_offset), random.choice(y_offset)
             x, y = component['location']['x_left'] + x_variable, component['location']['y_top'] + y_variable
