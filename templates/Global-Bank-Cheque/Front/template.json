@@ -1,11 +1,11 @@
 {
     "doc_name": "cheque_template",
-    "background_img": "templates/Global-Bank-Cheque/Front/background.jpg",
+    "background_img": "templates/Global-Bank-Cheque/Front/blank_cheque_og.png",
     "defaults": {
         "split_words": true,
         "lang": "en",
         "font_files": {
-            "en": "fonts/Arial_Bold.ttf",
+            "en": "fonts/PhontPhreaks Handwriting.ttf",
             "ne": "fonts/Karma-Regular.ttf"
         },
         "font_size": 10,

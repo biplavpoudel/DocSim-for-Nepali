@@ -17,6 +17,8 @@
         "date": {
             "type": "text",
             "filler_mode": "regex",
+            "lang": "ne",
+            "font": "fonts/Karma-Regular.ttf",
             "font_size": 20,
             "filler_regex": "^(0[1-9]|[1-2][0-9]|3[01])-(0[1-9]|1[0-2])-(20[7-8][0-9])$",
             "entity": "date",
