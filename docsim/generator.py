@@ -188,8 +188,28 @@ class Generator:
                 ground_truth.append(metadata)
             else:
                 raise NotImplementedError
-        
-        output_file = os.path.join(output_folder, random_id())
+
+        filename = random_id()
+        output_file = os.path.join(output_folder, filename)
+
+        # Creating an equivalent ground truth for DONUT Transformer
+        '''{'file_name': '9e243b4b-10407010032878_57458430.json',
+         'Payee:0': 'Milky way Share broker company ltd',
+         'Sum:1': 'Five lakh only',
+         'Account_number:2': '10407010032878',
+         'MICR:3': '00574584301901',
+         'Amount:4': '500000',
+         'Date:5': '12042080',
+         '': 'A/C Payee'}'''
+
+        file_name = filename + ".json"
+        payee = ground_truth[1]["text"].replace("\n","")
+        sums = ground_truth[2]["text"].replace("  "," ")
+        amount = ground_truth[3]["text"]
+        date = ground_truth[0]["text"].replace(" ","").replace("\n","")
+        print("File name: ",file_name,"\nDate: ",date, "\nPayee: ",payee, "\nSums: ",sums,"\nAmount: ", amount)
+
+
         image.save(output_file+'.jpg')
         gt = {'doc_name': self.doc_name, 'data': ground_truth}
         with open(output_file+'.json', 'w', encoding='utf-8') as f:
