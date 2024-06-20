@@ -10,7 +10,8 @@
         },
         "font_size": 25,
         "font_color": "rgb(15,15,15)",
-        "upper_case": true
+        "upper_case": true,
+        "cheque": true
     },
     "components": {
         "date": {
@@ -41,7 +42,7 @@
         "amount_words": {
             "type": "text",
             "filler_mode": "random",
-            "filler_type": "full_name",
+            "filler_type": "amount_nepali",
             "entity": "cheque_amount_words",
             "lang": "ne",
             "font":"fonts/Karma-Regular.ttf",

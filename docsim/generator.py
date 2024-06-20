@@ -92,6 +92,8 @@ class Generator:
                         component['generator'] = MultilineFullNameGenerator(component['lang'])
                     elif component['filler_type'] == 'account_full_name':
                         component['generator'] = AccNameGenerator(component['lang'])
+                    elif component['filler_type'] == 'amount_nepali':
+                        component['generator'] = NepaliCurrencyGenerator()
                     elif component['filler_type'] == 'child_name':
                         component['generator'] = ChildNameFromParentGenerator(component['lang'], component['data_source'])
                     elif component['filler_type'] == 'address':
@@ -167,6 +169,11 @@ class Generator:
         image = Image.open(self.bg_img)
         img_draw = ImageDraw.Draw(image)
         ground_truth = []
+
+        # for Global Nepali cheque only
+        y_check_offset = [0, -17]
+        y_check_variable = random.choice(y_check_offset)
+
         for component_name, component in self.components.items():
             if component['type'] == 'text':
                 # To know if draw_text() or draw_words() is invoked
@@ -174,7 +181,7 @@ class Generator:
                 if component['split_words']:
                     metadata = self.draw_words(img_draw, component)
                 else:
-                    metadata = [self.draw_text(img_draw, component)]
+                    metadata = [self.draw_text(img_draw, component, check_variable = y_check_variable)]
                 ground_truth.extend(metadata)
             elif component['type'] == 'image':
                 metadata = self.draw_img(image, component)
@@ -205,15 +212,13 @@ class Generator:
         
         return output_files
     
-    def draw_text(self, img_draw, component):
+    def draw_text(self, img_draw, component, check_variable):
         '''
         Render text on image for the given component.
         '''
         # For chequebook of Global IME Bank
         if component["entity"] == "cheque_amount_words" or component["entity"] == "cheque_payee_name":
-            y_check_offset = [0, -17]
-            y_check_variable = random.choice(y_check_offset)
-            x, y = component['location']['x_left'], component['location']['y_top'] + y_check_variable
+            x, y = component['location']['x_left'], component['location']['y_top'] + check_variable
 
         # For account opening bank form of Everest Bank
         elif component["entity"] == "account_checkbox":

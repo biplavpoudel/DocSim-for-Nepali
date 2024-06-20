@@ -11,6 +11,62 @@ class TextFromRegexGenerator(TextGeneratorBase):
     def generate(self):
         return xeger(self.pattern)
 
+import re
+class NepaliCurrencyGenerator(TextGeneratorBase):
+    def __init__(self):
+        self.nepali_numbers = [
+            "एक", "दुई", "तीन", "चार", "पाँच", "छ", "सात", "आठ", "नौ",
+            "दश", "एघार", "बाह्र", "तेह्र", "चौध", "पन्ध्र", "सोह्र", "सत्र", "अठार", "उन्नाइस",
+            "बीस", "एक्काइस", "बाइस", "तेइस", "चौबीस", "पच्चीस", "छब्बीस", "सत्ताइस", "अठ्ठाइस", "उनन्तिस",
+            "तीस", "एकतीस", "बत्तीस", "तेत्तीस", "चौँतीस", "पैँतीस", "छत्तीस", "सैंतीस", "अठतीस", "उनन्चालीस",
+            "चालीस", "एकचालीस", "बयालीस", "त्रियालीस", "चवालीस", "पैंतालीस", "छयालीस", "सतचालीस", "अठचालीस", "उनन्चास",
+            "पचास", "एकाउन्न", "बाउन्न", "त्रिपन्न", "चवन्न", "पचपन्न", "छपन्न", "सन्ताउन्न", "अन्ठाउन्न", "उनन्साठी",
+            "साठी", "एकसट्ठी", "बयसट्ठी", "त्रिसट्ठी", "चौंसट्ठी", "पैंसट्ठी", "छैंसट्ठी", "सतसट्ठी", "अठसट्ठी",
+            "उनन्सत्तरी",
+            "सत्तरी", "एकहत्तर", "बहत्तर", "त्रिहत्तर", "चौहत्तर", "पचहत्तर", "छयहत्तर", "सतहत्तर", "अठहत्तर", "उनासी",
+            "अस्सी", "एकासी", "बयासी", "त्रियासी", "चौरासी", "पचासी", "छयासी", "सतासी", "अठासी", "उनान्नब्बे",
+            "नब्बे", "एकान्नब्बे", "बयान्नब्बे", "त्रियान्नब्बे", "चौरान्नब्बे", "पन्चान्नब्बे", "छयान्नब्बे",
+            "सन्तान्नब्बे", "अन्ठान्नब्बे", "उनान्सय", "सय"
+        ]
+
+    def random_nepali_number(self):
+            return random.choice(self.nepali_numbers)
+
+    def generate_nepali_currency(self):
+        parts = []
+
+        # Generate crores part
+        if random.choice([True, False]):
+            crores = self.random_nepali_number()
+            parts.append(f"{crores} करोड")
+
+        # Generate lakhs part
+        if random.choice([True, False]):
+            lakhs = self.random_nepali_number()
+            parts.append(f"{lakhs} लाख")
+
+        # Generate thousands part
+        if random.choice([True, False]):
+            thousands = self.random_nepali_number()
+            parts.append(f"{thousands} हजार")
+
+        # Generate hundreds part
+        if random.choice([True, False]):
+            hundreds = self.random_nepali_number()
+            parts.append(f"{hundreds} सय")
+
+        # Generate final number part
+        number = self.random_nepali_number()
+        parts.append(number)
+
+        # Combine all parts and add "मात्र"
+        result = ", ".join(parts) + " मात्र/-"
+
+        return result
+
+    def generate(self):
+        return self.generate_nepali_currency()
+
 class TextFromArrayGenerator(TextGeneratorBase):
     def __init__(self, array):
         self.options = array

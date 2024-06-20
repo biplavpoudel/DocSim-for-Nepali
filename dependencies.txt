@@ -8,9 +8,6 @@ indic_transliteration
 # Alternative for above to implement: LibIndic Transliteration
 # git+https://github.com/libindic/Transliteration
 
-# Language Specific Libs
-open-tamil
-
 qrcode
 python-barcode[images]
 faker
