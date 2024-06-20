@@ -59,13 +59,34 @@ class NepaliCurrencyGenerator(TextGeneratorBase):
         number = self.random_nepali_number()
         parts.append(number)
 
-        # Combine all parts and add "मात्र"
-        result = ", ".join(parts) + " मात्र/-"
-
+        # Combine all parts
+        result = ", ".join(parts)
         return result
 
+
     def generate(self):
-        return self.generate_nepali_currency()
+        synthesized_amount = self.generate_nepali_currency()
+        # e.g. चौध लाख, उन्नाइस हजार, एघार मात्र/-
+        # print(synthesized_amount)
+        first_line = []
+        second_line = []
+        closing_tag = " मात्र/-"
+        list_of_words  =  synthesized_amount.split(" ")
+        # print(list_of_words)
+        # e.g. ['उनन्तिस', 'करोड,', 'पच्चीस', 'लाख,', 'बाह्र', 'हजार,', 'चौबीस', 'मात्र/-']
+        if len(list_of_words) <= 7:
+            synthesized_amount += closing_tag
+        else:
+            print("List of words are:", list_of_words)
+            # Join words from the list to form the required lines
+            first_line = ' '.join(list_of_words[:6])
+            second_line = ' '.join(list_of_words[6:])
+            print("First Line: ", first_line)
+            print("Second Line: ", second_line)
+            print("For longer than 6 words: ",first_line, second_line)
+            synthesized_amount = first_line +" \n "+ second_line + closing_tag
+            print("The synthesized_amount is: ", synthesized_amount)
+        return synthesized_amount
 
 class TextFromArrayGenerator(TextGeneratorBase):
     def __init__(self, array):

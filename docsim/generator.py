@@ -177,7 +177,7 @@ class Generator:
         for component_name, component in self.components.items():
             if component['type'] == 'text':
                 # To know if draw_text() or draw_words() is invoked
-                # print(component['split_words'],"for enitity:", component['entity'])
+                # print(component['split_words'],"for entity:", component['entity'])
                 if component['split_words']:
                     metadata = self.draw_words(img_draw, component)
                 else:
