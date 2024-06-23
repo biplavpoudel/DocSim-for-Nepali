@@ -169,6 +169,7 @@ class Generator:
         image = Image.open(self.bg_img)
         img_draw = ImageDraw.Draw(image)
         ground_truth = []
+        ground_truth_donut = []
 
         # for Global Nepali cheque only
         y_check_offset = [0, -17]
@@ -193,25 +194,44 @@ class Generator:
         output_file = os.path.join(output_folder, filename)
 
         # Creating an equivalent ground truth for DONUT Transformer
-        '''{'file_name': '9e243b4b-10407010032878_57458430.json',
-         'Payee:0': 'Milky way Share broker company ltd',
-         'Sum:1': 'Five lakh only',
-         'Account_number:2': '10407010032878',
-         'MICR:3': '00574584301901',
-         'Amount:4': '500000',
-         'Date:5': '12042080',
-         '': 'A/C Payee'}'''
-
+        # {'file_name': '20c0ba7c-31301010000464_66510330.json',
+        #  'ground_truth': {'gt_parse': {'Payee:0': 'Fashion furnishing pvt ltd',
+        #                                'Sum:1': 'Sixty four thousand and two hundred',
+        #                                'Sum:2': 'only',
+        #                                'Account_number:3': '313010000464',
+        #                                'MICR:4': '00665103301901',
+        #                                'Amount:5': '64200',
+        #                                'Date:6': '31042080',
+        #                                'Ac_Payee:7': 'A/C Payee',
+        #                                'Signature_1:8': '',
+        #                                '': ''}}
         file_name = filename + ".json"
         payee = ground_truth[1]["text"].replace("\n","")
         sums = ground_truth[2]["text"].replace("  "," ")
         amount = ground_truth[3]["text"]
         date = ground_truth[0]["text"].replace(" ","").replace("\n","")
-        print("File name: ",file_name,"\nDate: ",date, "\nPayee: ",payee, "\nSums: ",sums,"\nAmount: ", amount)
 
+        # print("File name: ",file_name,"\nDate: ",date, "\nPayee: ",payee, "\nSums: ",sums,"\nAmount: ", amount)
+
+        gt_parse = {
+            'Payee:0': payee,
+            'Sum:1': sums,
+            'Sum:2': '',
+            'Account_number:3': '313010000464',  # Assuming this is a constant value
+            'MICR:4': '00665103301901',  # Assuming this is a constant value
+            'Amount:5': amount,
+            'Date:6': date,
+            'Ac_Payee:7': 'A/C Payee',  # Assuming this is a constant value
+            'Signature_1:8': '',
+            '': ''
+        }
+
+        gt = {
+            'file_name': file_name,
+            'ground_truth': {'gt_parse': gt_parse}
+        }
 
         image.save(output_file+'.jpg')
-        gt = {'doc_name': self.doc_name, 'data': ground_truth}
         with open(output_file+'.json', 'w', encoding='utf-8') as f:
             json.dump(gt, f, ensure_ascii=False, indent=4)
         
