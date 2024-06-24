@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 from tqdm import tqdm
@@ -16,7 +17,7 @@ class Generator:
         else:
             with open(template_json, encoding='utf-8') as f:
                 template = json.load(f)
-        
+        self.metadata = []
         self.doc_name = template['doc_name']
         self.bg_img = template['background_img']
         self.DEBUG = template['debug_mode'] if 'debug_mode' in template else False
@@ -231,9 +232,11 @@ class Generator:
             'ground_truth': {'gt_parse': gt_parse}
         }
 
+        self.metadata.append(gt)
+
         image.save(output_file+'.jpg')
-        with open(output_file+'.json', 'w', encoding='utf-8') as f:
-            json.dump(gt, f, ensure_ascii=False, indent=4)
+        # with open(output_file+'.json', 'w', encoding='utf-8') as f:
+        #     json.dump(gt, f, ensure_ascii=False, indent=4)
         
         return output_file
     
@@ -249,7 +252,8 @@ class Generator:
         for i in tqdm(range(num_samples)):
             output_file = self.generate_sample(output_folder)
             output_files.append(output_file)
-        
+        # print(self.metadata)
+        self.create_annotation_entity(output_folder)
         return output_files
     
     def draw_text(self, img_draw, component, check_variable):
@@ -471,3 +475,22 @@ class Generator:
             'width': width,
             'height': height,
         }
+
+    def create_annotation_entity(self, output_folder):
+        '''
+        Create a single metadata.jsonl for all the synthesized images
+        '''
+        json_name = 'metadata.jsonl'
+        output_directory = output_folder
+
+        # Ensure the directory exists
+        os.makedirs(output_directory, exist_ok=True)
+
+        # File path with the desired directory
+        file_path = os.path.join(output_directory, json_name)
+
+        for labels in self.metadata:
+            with open(file_path, 'a', encoding='utf-8') as f:
+                # Convert dictionary to a JSON string with Unicode and ASCII encoding
+                json_string = json.dumps(labels, ensure_ascii=False)
+                f.write(json_string + '\n')
