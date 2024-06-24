@@ -194,36 +194,36 @@ class Generator:
         output_file = os.path.join(output_folder, filename)
 
         # Creating an equivalent ground truth for DONUT Transformer
-        # {'file_name': '20c0ba7c-31301010000464_66510330.json',
-        #  'ground_truth': {'gt_parse': {'Payee:0': 'Fashion furnishing pvt ltd',
-        #                                'Sum:1': 'Sixty four thousand and two hundred',
-        #                                'Sum:2': 'only',
-        #                                'Account_number:3': '313010000464',
-        #                                'MICR:4': '00665103301901',
-        #                                'Amount:5': '64200',
-        #                                'Date:6': '31042080',
-        #                                'Ac_Payee:7': 'A/C Payee',
-        #                                'Signature_1:8': '',
-        #                                '': ''}}
-        file_name = filename + ".json"
+        '''
+         {"file_name": "118.jpg",
+         "ground_truth": "{\"gt_parse\":
+         {\"cheque_details\":[
+            {\"date\": \"19042024\",
+            \"payee\": \"Bhukampa prabhabit rahat kosh Jajarkot 2080\",
+            \"sum\": \"One lakh Only\",
+            \"amount\": \"100000/-\",
+            \"account_number\": \"B501010000152\",
+            \"account_name\": \"NEPAL CAMPUS CRUSADE FOR CHRIST\",
+            \"micr\": 49423485.0,
+            \"A/C_Payee\": \"A/C PAYEE ONLY\"}
+            ]}}"}
+        '''
+
+        file_name = filename + ".jpg"
         payee = ground_truth[1]["text"].replace("\n","")
         sums = ground_truth[2]["text"].replace("  "," ")
-        amount = ground_truth[3]["text"]
+        amount = ground_truth[3]["text"].replace("\n","")
         date = ground_truth[0]["text"].replace(" ","").replace("\n","")
 
         # print("File name: ",file_name,"\nDate: ",date, "\nPayee: ",payee, "\nSums: ",sums,"\nAmount: ", amount)
 
         gt_parse = {
-            'Payee:0': payee,
-            'Sum:1': sums,
-            'Sum:2': '',
-            'Account_number:3': '313010000464',  # Assuming this is a constant value
-            'MICR:4': '00665103301901',  # Assuming this is a constant value
-            'Amount:5': amount,
-            'Date:6': date,
-            'Ac_Payee:7': 'A/C Payee',  # Assuming this is a constant value
-            'Signature_1:8': '',
-            '': ''
+            "cheque_details": {
+                'date': date,
+                'payee': payee,
+                'sum': sums,
+                'amount': amount
+            }
         }
 
         gt = {
