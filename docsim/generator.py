@@ -229,7 +229,7 @@ class Generator:
 
         gt = {
             'file_name': file_name,
-            'ground_truth': {'gt_parse': json.dumps(gt_parse)}
+            'ground_truth': json.dumps({'gt_parse': gt_parse}, ensure_ascii=False)
         }
 
         self.metadata.append(gt)
