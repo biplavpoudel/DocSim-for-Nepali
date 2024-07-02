@@ -1,4 +1,4 @@
-Pillow
+pillow == 9.5.0
 tqdm
 requests
 rstr

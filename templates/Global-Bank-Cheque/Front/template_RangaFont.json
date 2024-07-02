@@ -1,0 +1,70 @@
+{
+    "doc_name": "cheque_template",
+    "background_img": "templates/Global-Bank-Cheque/Front/blank_cheque_og.png",
+    "defaults": {
+        "split_words": false,
+        "lang": "en",
+        "font_files": {
+            "en": "fonts/PhontPhreaks Handwriting.ttf",
+            "ne": "fonts/Ranga-Regular.ttf"
+        },
+        "font_size": 25,
+        "font_color": "rgb(15,15,15)",
+        "upper_case": true,
+        "cheque": true
+    },
+    "components": {
+        "date": {
+            "type": "text",
+            "filler_mode": "regex",
+            "font_size":43,
+            "lang": "ne",
+            "font":"fonts/Ranga-Regular.ttf",
+            "filler_regex":  "^((०  [१-९]) | ([१-२]  [०-९]) | (३  [०-१])) (०  [१-९] | १  [०-२]) (२  ०  [७-८] [०-९])$\n",
+            "entity": "date",
+            "location": {
+                "x_left": 900,
+                "y_top": 38
+            }
+        },
+        "payee_name": {
+            "type": "text",
+            "filler_mode": "random",
+            "filler_type": "full_name",
+            "lang": "ne",
+            "font_size": 35,
+            "entity": "cheque_payee_name",
+            "location": {
+                "x_left": 288,
+                "y_top": 147
+            }
+        },
+        "amount_words": {
+            "type": "text",
+            "filler_mode": "random",
+            "filler_type": "amount_nepali",
+            "entity": "cheque_amount_words",
+            "lang": "ne",
+            "font":"fonts/Ranga-Regular.ttf",
+            "font_size": 35,
+            "location": {
+                "x_left": 194,
+                "y_top": 180
+            }
+        },
+        "amount_figures": {
+            "type": "text",
+            "filler_mode": "regex",
+            "filler_type": "full_name",
+            "font_size": 30,
+            "lang": "ne",
+            "font":"fonts/Ranga-Regular.ttf",
+            "filler_regex": "(?i)^(([०-९]{1,2},[०-९]{2},[०-९]{3})|([०-९]{1,2},[०-९]{3})|([०-९]{1,3}))/-$\n",
+            "entity": "amount_figures",
+            "location": {
+                "x_left": 924,
+                "y_top": 181
+            }
+        }
+    }
+}
